@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>01_HelloWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<!-- name은 뭘로 해도 되겠지만, 아래의 매핑에 있는 name과는 동일해야 함 -->
+  	<servlet-name>TestPersonServletttt1</servlet-name>
+  	<servlet-class>com.kh.servlet.TestPersonServlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestPersonServletttt1</servlet-name>
+  	
+  	<!-- 실제 url-pattern만 적으면 된다. 앞에 /web이 붙지 않아도 됨. -->
+  	<url-pattern>/testPerson1.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>tps222</servlet-name>
+  	<servlet-class>com.kh.servlet.TestPersonServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>tps222</servlet-name>
+  	<url-pattern>/testPerson2.do</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

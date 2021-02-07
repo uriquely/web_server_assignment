@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>안녕, 웹은 처음이지?</h1>
+		<p>
+			WebContent폴더는 Web Root Directory.
+			브라우저에서 접근시, 시작경로가 된다.
+		</p>
+		<hr />
+		<!-- ul+ -->
+		<ul>
+<!-- 		/ 로 시작한 절대주소.
+			/ 현재 tomcat 서버를 가리킴.
+			/web 현재 지역서버에 배포된 application인 01_HelloWeb의 context-root명
+				web root directory(WebContent)의 시작 
+				/WebContent/servlet/testPerson1.html을 찾게 된다.
+				
+			하나의 톰캣 서버에는 여러가지 어플리케이션이 들어올 수 있다.
+			그래서 어떤 어플리케이션인지 반드시 명시를 해야 함.
+			우리는 web이라는 어플리케이션에 있는 루트에 접근을 하고 있다.
+			
+			-->
+			<li><a href="/web/servlet/testPerson1.html">GET|POST방식 요청</a></li>
+			<li><a href="/web/servlet/testPerson2.html">JSP방식 요청</a></li>
+		</ul>
+		<hr />
+		<h2>JSP</h2>
+		<!-- ul+>a -->
+		<ul>
+			<li><a href="/web/jsp/01_sum.jsp">jsp테스트</a></li>
+			<li><a href="/web/jsp/02_fortune.jsp">include테스트</a></li>
+			<li><a href="/web/jsp/04_menu.jsp">오늘의 메뉴</a></li>
+		</ul>
+	</body>
+</html>

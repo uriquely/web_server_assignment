@@ -1,0 +1,7 @@
+package common.listener;
+
+import javax.servlet.http.HttpSessionListener;
+
+public class SessionCounterListener  implements HttpSessionListener{
+
+}

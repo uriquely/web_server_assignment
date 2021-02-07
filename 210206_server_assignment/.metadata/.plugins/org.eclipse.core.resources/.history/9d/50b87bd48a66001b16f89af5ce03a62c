@@ -1,0 +1,41 @@
+package member.model.vo;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+
+/**
+ * 
+ * member 테이블의 한 행에 상응하는 vo클래스
+ * 
+ * (dto, entity, bean)
+ *
+ */
+public class Member implements Serializable {
+	
+	private String memberId;
+	private String password;
+	private String memberName;
+	private String memberRole;
+	private String gender;
+	private Date birthDay;
+	private String email;
+	private String phone;
+	private String adress;
+	private String hobby;
+	private Date enrollDate;
+	
+	/**
+	MEMBER_ID   NOT NULL VARCHAR2(15)  
+	PASSWORD    NOT NULL VARCHAR2(300) 
+	MEMBER_NAME NOT NULL VARCHAR2(30)  
+	MEMBER_ROLE NOT NULL CHAR(1)       
+	GENDER               CHAR(1)       
+	BIRTHDAY             DATE          
+	EMAIL                VARCHAR2(100) 
+	PHONE       NOT NULL CHAR(11)      
+	ADDRESS              VARCHAR2(200) 
+	HOBBY                VARCHAR2(100) 
+	ENROLL_DATE          DATE        
+	*/
+}

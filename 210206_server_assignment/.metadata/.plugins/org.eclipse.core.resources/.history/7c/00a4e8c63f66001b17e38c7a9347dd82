@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*"%>
+<%
+
+	String main = request.getParameter("main_menu");
+	String side = request.getParameter("side_menu");
+	String drink = request.getParameter("drink_menu");
+	
+	int result = (int)request.getAttribute("result");
+
+ %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>테스트 결과</title>
+	
+	<style>
+			li:nth-child(3) {
+				color: red;
+			}
+	</style>
+</head>
+<body>
+	<h2>감사합니다.</h2>
+	<p><%= main %></p>
+	<p>사이드메뉴 : <%= side %></p>
+	<p>드링크데스 : <%= drink %></p>
+	<p>결과데스 : <%= result %></p>
+</body>
+</html>
