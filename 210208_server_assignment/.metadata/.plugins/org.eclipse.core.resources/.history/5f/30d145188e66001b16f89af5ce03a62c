@@ -1,0 +1,6 @@
+package member.model.service;
+
+public class MemberService {
+
+	private MemberDao memberDao = new MemberDao();
+}

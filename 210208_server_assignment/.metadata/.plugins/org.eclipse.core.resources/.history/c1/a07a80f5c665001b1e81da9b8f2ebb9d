@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.Date" import="java.text.SimpleDateFormat"%>
+    
+<% 
+	//server단 처리 : java 코드로 연산
+	
+	int sum = 0;
+	for(int i = 0; i <= 10; i++)
+		sum += i;
+	
+	Date day = new Date();
+	SimpleDateFormat day;
+	day = new SimpleDateFormat("yyyy-MM-dd");
+
+%>
+
+<!-- 
+
+//servlet은 작성할 때는 자바 코드 내부에 html 코드가 들어가는 구조고, 
+jsp는 작성할 때 html 코드 내부에 자바 코드를 넣는 구조인데,
+
+jsp는 처리 단계에서 servlet으로 변환되어 처리가 되게 되고, 
+아까 찾아들어간 폴더 경로가 변환된 servlet으로 변환되어 저장된 곳. 
+그거를 보기 위해서 들어간거고, 그거를 이클립스에 가져와서 열은건데,
+
+servlet은 HttpServlet 클래스를 상속해야 하는데, 
+보면 HttpJspBase 머 이상한 새기를 상속하고 있어서 
+이게 뭔가하고 들어가보니 HttpJspBase가 HttpServlet을 상속하고 있던 것이었음
+
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 여기에 적은 html은 자바파일 안에서 문자열로 처리가 되고 있다. _01_005fsum_jsp.java 경로에서 확인 가능 -->
+<title>JSP Test</title>
+<script>
+window.onload = function(){
+	var sum = 0;
+	for(var i = 1; i <= 10; i++)
+		sum += i;
+	document.querySelector("span#result").innerHTML = sum;
+	   alert('클라이언트 계산이 끝났습니다!');
+};
+
+</script>
+</head>
+<body>
+
+	<%-- jsp주석 : java파일 변환시 생략 --%>
+	<!-- html주석 : client까지 전달되고, 화면의 처리에서만 생략 -->
+	<h1>JSP Test</h1>
+	<p>1 ~ 10까지의 합 구하기</p>
+	
+	<ul>
+		<li>서버 : <%-- <%= sum %> --%><% out.print(sum); %></li>
+		<li>클라이언트 : <span id="result"></span></li>
+	</ul>
+	<p>시각 표시</p>
+	<ul>
+		<li>서버 : <%= day %></li>
+		<li>클라이언트 : <span id="today"></span></li>
+	</ul>
+</body>
+</html>

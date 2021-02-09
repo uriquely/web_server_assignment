@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<temp-directories>
+  <temp-directory age="0" key="myWeb" path="tmp2" recycle="false"/>
+  <temp-directory age="0" key="02_HelloMVCServer" path="tmp1" recycle="false"/>
+  <temp-directory age="0" key="01_HelloWebServer" path="tmp0" recycle="false"/>
+</temp-directories>

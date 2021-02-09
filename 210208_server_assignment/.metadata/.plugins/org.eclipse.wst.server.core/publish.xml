@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<publish-info>
+  <server id="01_HelloWebServer" path="publish0.dat"/>
+  <server id="myWeb" path="publish2.dat"/>
+  <server id="02_HelloMVCServer" path="publish1.dat"/>
+</publish-info>

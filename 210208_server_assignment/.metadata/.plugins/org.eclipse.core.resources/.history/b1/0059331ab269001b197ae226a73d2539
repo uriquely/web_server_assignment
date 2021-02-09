@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디중복검사</title>
+<script src="<%=request.getContextPath()%>/js/jquery-3.2.1.min.js"></script>
+<style>
+div#checkId-container{text-align:center; padding-top:50px;}
+span#duplicated{color:red; font-weight:bold;}
+</style>
+</head>
+<body>
+	<div id="checkId-container"></div>
+</body>
+</html>

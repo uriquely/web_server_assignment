@@ -1,0 +1,187 @@
+<%@ page import="member.model.vo.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
+
+<script type="text/javascript">
+	function checkIdDuplicate() {
+		
+		//1. 아이디 유효성 검사
+		var $memberId = $(memberId_);
+		if(/^[a-zA-Z0-9_]{4,}$/.test($memberId.val()) == false) {
+			alert("유효한 아이디를 입력해주세요.");
+			$memberId.select();
+			return;
+		}
+		
+		//2. 팝업을 통해 중복검사
+		//폼제출 + 팝업
+		//현재 페이지에서 폼을 제출해버리면, 회원가입 페이지가 다음 페이지로 이동되어버리면 의미가 없음
+		//따라서 회원가입 폼은 보여주고 있는 상태에서 오직 중복검사만 새롭게 띄워 진행
+		
+		var title = "checkIdDuplicatePopup";
+		var spec = "left=500px, top=300px, width=300px, height=200px";
+		
+		//팝업을 띄움과 동시에 검사
+		open("", title, spec);
+		
+		//선택자 사용
+		var $frm = $("[name=checkIdDuplicateFrm]");
+		
+		//name값을 document에서 바로 접근
+		var $frm = $(document.checkIdDuplicateFrm);
+	}
+</script>
+
+<!-- 아이디 중복검사 폼 -->
+<form name="checkIdDuplicateFrm">
+	<input type="hidden" name="memberId" />
+</form>
+
+<section id=enroll-container>
+	<h2>회원 가입 정보 입력</h2>
+	<form name="memberEnrollFrm" action="<%= request.getContextPath() %>/member/join" method="post">
+		<table>
+			<tr>
+				<th>아이디<sup>*</sup></th>
+				<td>
+					<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" required>
+					<input type="button" value="중복검사" onclick="checkIdDuplicate();"/>
+					<input type="hidden" id="idValid" value="0" />
+					<%-- 중복검사 통과인경우 1 / 통화하지 못한 경우 0 --%>
+				</td>
+			</tr>
+			<tr>
+				<th>패스워드<sup>*</sup></th>
+				<td>
+					<input 
+						type="password" 
+						name="password" 
+						id="password_" 
+						required>
+						<br>
+				</td>
+			</tr>
+			<tr>
+				<th>패스워드확인<sup>*</sup></th>
+				<td>	
+					<input 
+						type="password" 
+						id="password2" 
+						required>
+						<br>
+				</td>
+			</tr>  
+			<tr>
+				<th>이름<sup>*</sup></th>
+				<td>	
+				<input 
+					type="text"  
+					name="memberName" 
+					id="memberName" 
+					required><br>
+				</td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td>	
+				<input 
+					type="date" 
+					name="birthDay" 
+					id="birthDay">
+					<br />
+				</td>
+			</tr> 
+			<tr>
+				<th>이메일</th>
+				<td>	
+					<input 
+						type="email" 
+						placeholder="abc@xyz.com" 
+						name="email" 
+						id="email">
+						<br>
+				</td>
+			</tr>
+			<tr>
+				<th>휴대폰<sup>*</sup></th>
+				<td>	
+					<input 
+						type="tel" 
+						placeholder="(-없이)01012345678" 
+						name="phone" 
+						id="phone" 
+						maxlength="11" 
+						required>
+						<br>
+				</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td>	
+					<input 
+						type="text" 
+						placeholder="" 
+						name="address" 
+						id="address">
+						<br>
+				</td>
+			</tr>
+			<tr>
+				<th>성별 </th>
+				<td>
+					<input 
+						type="radio" 
+						name="gender" 
+						id="gender0" 
+						value="M" checked>
+					<label for="gender0">남</label>
+					<input 
+						type="radio" 
+						name="gender" 
+						id="gender1" 
+						value="F">
+					<label for="gender1">여</label>
+				</td>
+			</tr>
+			<tr>
+				<th>취미 </th>
+				<td>
+					<input 
+						type="checkbox" 
+						name="hobby" 
+						id="hobby0" 
+						value="운동">
+					<label for="hobby0">운동</label>
+					<input 
+						type="checkbox" 
+						name="hobby" 
+						id="hobby1" 
+						value="등산">
+					<label for="hobby1">등산</label>
+					<input 
+						type="checkbox" 
+						name="hobby" 
+						id="hobby2" 
+						value="독서">
+					<label for="hobby2">독서</label><br />
+					<input 
+						type="checkbox" 
+						name="hobby" 
+						id="hobby3" 
+						value="게임">
+					<label for="hobby3">게임</label>
+					<input 
+						type="checkbox" 
+						name="hobby" 
+						id="hobby4" 
+						value="여행">
+					<label for="hobby4">여행</label><br />
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="가입" >
+		<input type="reset" value="취소">
+	</form>
+</section>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

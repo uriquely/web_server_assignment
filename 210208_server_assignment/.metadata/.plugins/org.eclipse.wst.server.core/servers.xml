@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/01_HelloWebServer-config" deployDir="wtpwebapps" hostname="localhost" id="01_HelloWebServer" name="01_HelloWebServer" runtime-id="Apache Tomcat v8.5" serveModulesWithoutPublish="true" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="01_HelloWeb::org.eclipse.jst.jee.server:01_HelloWeb::jst.web::3.1"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/02_HelloMVCServer-config" deployDir="wtpwebapps" hostname="localhost" id="02_HelloMVCServer" name="02_HelloMVCServer" runtime-id="Apache Tomcat v8.5" serveModulesWithoutPublish="true" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="02_HelloMVC::org.eclipse.jst.jee.server:02_HelloMVC::jst.web::3.1"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/myWeb-config" deployDir="wtpwebapps" hostname="localhost" id="myWeb" name="myWeb" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="1">
+    <list key="modules" value0="myWeb::org.eclipse.jst.jee.server:myWeb::jst.web::3.1"/>
+  </server>
+</servers>

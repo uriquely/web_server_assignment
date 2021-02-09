@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>안녕, 웹은 처음이지?</h1>
+		<p>
+			WebContent폴더는 Web Root Directory.
+			브라우저에서 접근시, 시작경로가 된다.
+		</p>
+		<hr />
+		<!-- ul+ -->
+		<ul>
+<!-- 		/ 로 시작한 절대주소.
+			/ 현재 tomcat 서버를 가리킴.
+			/web 현재 지역서버에 배포된 application 01_HelloWeb의 context-root명
+				web root directory(WebContent)의 시작 
+				/WebContent/servlet/testPerson1.html을 찾게 된다.
+				-->
+			<li><a href="/web/servlet/testPerson1.html">GET방식 요청</a></li>
+		</ul>
+	</body>
+</html>

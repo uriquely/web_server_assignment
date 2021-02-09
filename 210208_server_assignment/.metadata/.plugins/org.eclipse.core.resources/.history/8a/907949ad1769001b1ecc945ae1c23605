@@ -1,0 +1,55 @@
+package first;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * 어노테이션(@)이 서블릿을 만들었을 때 자동으로 생성된다.
+ * WebServlet 어노테이션의 속성이 잘 정리된 링크
+ * https://atoz-develop.tistory.com/entry/WebServlet-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98-%EC%A3%BC%EC%9A%94-%EC%86%8D%EC%84%B1-%EC%A0%95%EB%A6%AC
+ * 
+ * 이렇게 url에 대한 매핑을 하는 이유는, 보안 관련 이유가 가장 크다.
+ */
+
+@WebServlet("/firstsv")
+
+
+/*
+ * FirstServlet가 HttpServlet을 상속받고 있다.
+ * 이로 인해서 FirstServlet는 서블릿으로 동작할 수 있게 되었다.
+ *
+ */
+
+public class FirstServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public FirstServlet() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		response.setContentType("text/html;charset=euc-kr");
+		
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		out.println("My First Servlet Program!");
+		out.println("<br>");
+		out.println("<body>");
+		out.println("</html>");
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<% 
+	String memberId = request.getParameter("memberId");
+	boolean available = (boolean)request.getAttribute("available");
+
+%>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디중복검사</title>
+<script src="<%=request.getContextPath()%>/js/jquery-3.5.1.min.js"></script>
+<style>
+div#checkId-container{text-align:center; padding-top:50px;}
+span#duplicated{color:red; font-weight:bold;}
+</style>
+<script>
+	function checkIdDuplicate() {
+		
+		//1. 아이디 유효성 검사
+		var $memberId = $("#memberId_");
+		if(/^[a-zA-Z0-9_]{4,}$/.test($memberId.val()) == false) {
+			alert("유효한 아이디를 입력해주세요.");
+			$memberId.select();
+			return;
+		}
+		
+		//2. 팝업을 통해 중복검사
+		//폼제출 + 팝업
+		//현재 페이지에서 폼을 제출해버리면, 회원가입 페이지가 다음 페이지로 이동되어버리면 의미가 없음
+		//따라서 회원가입 폼은 보여주고 있는 상태에서 오직 중복검사만 새롭게 띄워 진행
+		
+		var title = "checkIdDuplicatePopup";
+		var spec = "left=500px, top=300px, width=300px, height=200px";
+		
+		//팝업을 띄움과 동시에 검사
+		open("", title, spec);
+		
+		//선택자를 사용하거나,
+		//var $frm = $("[name=checkIdDuplicateFrm]");
+		
+		//name값을 document에서 바로 접근
+		var $frm = $(document.checkIdDuplicateFrm);
+		
+		//아이디값 셋팅
+		$frm.find("[name=memberId]")
+			.val($memberId.val());
+		
+		$frm.attr("action", "<%= request.getContextPath() %>/member/checkIdDuplicate")
+			.attr("method", "POST")
+			.attr("target", title) //폼과 팝업 연결 설정
+			.submit();
+	}
+</script>
+</head>
+<body>
+	<div id="checkId-container">
+
+	<% if(available) { %>
+		[<%= memberId %>]는 사용 가능합니다.
+	<% } else { %>
+		[<span id="duplicated"><%= memberId %></span>]는 이미 사용중입니다.
+		<br /><br />
+		<form 
+			action="<%= request.getContextPath() %>/member/checkIdDuplicate"
+			method="POST"
+			name="checkIdDuplicateFrm">
+			<input type="text" name="memberId" id="memberId_" placeholder="아이디" />
+			<input type="button" value="중복검사" onclick="checkIdDuplicate();" />
+		</form>
+	<% } %>
+	</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package member.model.vo;
+
+import java.io.Serializable;
+
+
+/**
+ * 
+ * member 테이블의 한 행에 상응하는 vo클래스
+ * 
+ * (dto, entity, bean)
+ *
+ */
+public class Member implements Serializable {
+
+}

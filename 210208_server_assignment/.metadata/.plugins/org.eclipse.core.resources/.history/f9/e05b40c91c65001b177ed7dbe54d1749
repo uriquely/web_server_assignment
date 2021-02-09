@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- jsp주석 --%>
+
+<% 
+
+	//java 코드 공간 (퍼센트 꺽새가)
+
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>테스트 결과</title>
+</head>
+<body>
+	<h1>테스트결과</h1>
+	<p>이름 : 홍길동</p>
+	<p>색깔 : 빨강</p>
+	<p>동물 : 강아지</p>
+	<p>음식 : [짜장면, 짬봉]</p>
+</body>
+</html>
